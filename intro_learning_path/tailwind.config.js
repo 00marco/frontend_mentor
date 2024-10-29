@@ -7,8 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-    }
-    extend: {},
+    },
+    extend: {
+      fontFamily: {
+        Outfit: ['Outfit', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
