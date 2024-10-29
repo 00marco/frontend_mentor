@@ -3,9 +3,9 @@ import QrCode from './components/qr_code'
 function App() {
 
   return (
-    <>
-      <QrCode />
-    </>
+    <div className="h-screen w-screen bg-slate-400 grid place-items-center">
+      <QrCode/>
+    </div>
   )
 }
 
