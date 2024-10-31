@@ -19,7 +19,8 @@
 			"extensions": [
 				"justjavac.vscode-deno-extensionpack",
 				"Codeium.codeium",
-				"wix.glean"
+				"wix.glean",
+				"WooodHead.glean-react-refactor"
 			]
 		}
 	}
