@@ -17,6 +17,10 @@ const router = createBrowserRouter([
     element: <Step1 />
   },
   {
+    "path": "/step1",
+    element: <Step1 />
+  },
+  {
     "path": "/step2",
     element: <Step2 />
   },

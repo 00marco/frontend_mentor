@@ -20,7 +20,8 @@
 				"justjavac.vscode-deno-extensionpack",
 				"Codeium.codeium",
 				"wix.glean",
-				"WooodHead.glean-react-refactor"
+				"WooodHead.glean-react-refactor",
+				"moalamri.inline-fold"
 			]
 		}
 	}
