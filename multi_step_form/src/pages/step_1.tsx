@@ -36,8 +36,9 @@ export default function Step1() {
                     </div>
                     <input type="form" className="p-3 my-1 rounded-md border-2" placeholder="e.g. + 1 234 567 890"></input>
                 </form>
-
-                <a href="/step2" className="bg-amber-500 self-end p-3 rounded-md">Next step</a>
+                <div className="flex self-end grow">
+                    <a href="/step2" className="bg-amber-500 self-end p-3 rounded-md">Next step</a>
+                </div>
             </div>
         </div>
     )
