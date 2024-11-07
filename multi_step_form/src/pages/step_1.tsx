@@ -1,4 +1,38 @@
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+
 export default function Step1() {
+    const navigate = useNavigate()
+
+    const [firstPageNameField, setFirstPageNameField] = useState("");
+    const [firstPageNameError, setFirstPageNameError] = useState(false);
+    const [firstPageEmailField, setFirstPageEmailField] = useState("");
+    const [firstPageEmailError, setFirstPageEmailError] = useState(false);
+    const [firstPagePhoneField, setFirstPagePhoneField] = useState("");
+    const [firstPagePhoneError, setFirstPagePhoneError] = useState(false);
+
+    function onChangeFirstPageNameField(e){
+        setFirstPageNameField(e.target.value);
+        setFirstPageNameError(false);
+    }
+
+    function onChangeFirstPageEmailField(e){
+        setFirstPageEmailField(e.target.value);
+        setFirstPageEmailError(false);
+    }
+    function onChangeFirstPagePhoneField(e){
+        setFirstPagePhoneField(e.target.value);
+        setFirstPagePhoneError(false);
+    }
+    function submitForm(e){
+        if ((firstPageNameField.length === 0 || firstPageEmailField.length === 0 || firstPagePhoneField.length === 0)) {
+            setFirstPageNameError(firstPageNameField.length === 0);
+            setFirstPageEmailError(firstPageEmailField.length === 0);
+            setFirstPagePhoneError(firstPagePhoneField.length === 0);
+        }else{
+            navigate("/step2")
+        }
+    }
     return (
         <div className="grid grid-cols-2 p-3 h-screen w-screen">
             <div className="flex flex-col col-start-1 gap-3 p-10 bg-slate-400">
@@ -16,28 +50,30 @@ export default function Step1() {
                 <form className="flex flex-col">
                     <div className="flex justify-between ">
                         <label>Name</label>
-                        <label>This field is required</label>
+                        <label className="text-red-500 font-bold">{firstPageNameError ? "This field is required" : ""}</label>
                     </div>
-                    <input type="form" className="p-3 my-1 rounded-md border-2" placeholder="Vanessa Mint"></input>
+                    <input type="form" className={"p-3 my-1 rounded-md border-2 " + (firstPageNameError ? "border-red-500" : "")} placeholder="Vanessa Mint" id="firstPageNameField" value={firstPageNameField} onChange={onChangeFirstPageNameField}></input>
                 </form>
                 
                 <form className="flex flex-col">
                     <div className="flex justify-between ">
                         <label>Email Address</label>
-                        <label>This field is required</label>
+                        <label className="text-red-500 font-bold">{firstPageEmailError ? "This field is required" : ""}</label>
                     </div>
-                    <input type="form" className="p-3 my-1 rounded-md border-2" placeholder="vanessamint@gmail.com"></input>
+                    <input type="form" className={"p-3 my-1 rounded-md border-2 " + (firstPageEmailError ? "border-red-500" : "")} placeholder="vanessamint@gmail.com" value={firstPageEmailField} onChange={onChangeFirstPageEmailField}></input>
                 </form>
 
                 <form className="flex flex-col">
                     <div className="flex justify-between ">
                         <label>Phone Number</label>
-                        <label>This field is required</label>
+                        <label className="text-red-500 font-bold">{firstPagePhoneError ? "This field is required" : ""}</label>
                     </div>
-                    <input type="form" className="p-3 my-1 rounded-md border-2" placeholder="e.g. + 1 234 567 890"></input>
+                    <input type="form" className={"p-3 my-1 rounded-md border-2 " + (firstPagePhoneError ? "border-red-500" : "")} placeholder="e.g. + 1 234 567 890" value={firstPagePhoneField} onChange={onChangeFirstPagePhoneField}></input>
                 </form>
                 <div className="flex self-end grow">
-                    <a href="/step2" className="bg-amber-500 self-end p-3 rounded-md">Next step</a>
+                    <button className="self-end bg-amber-500 p-3 rounded-md" onClick={submitForm}>
+                        Next step
+                    </button>
                 </div>
             </div>
         </div>
